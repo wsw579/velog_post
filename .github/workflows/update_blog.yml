@@ -1,0 +1,39 @@
+name: Update Blog Posts
+  
+
+on:
+  push:
+      branches:
+        - main  # 또는 워크플로우를 트리거하고 싶은 브랜치 이름
+  schedule:
+    - cron: '0 0 * * *'  # 미국시간 00시 (자정)에 업로드
+
+jobs:
+  update_blog:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Push changes
+      run: |
+        git config --global user.name 'wsw579'
+        git config --global user.email 'rmfltmskatls@naver.com'
+        git push https://${{ secrets.GH_PAT_WSW }}@github.com/wsw579/velog_post.git 
+        
+        # 깃허브 아이디
+        # 깃허브 이메일
+        # https://${{SecretKey}}@github.com/깃허브 아이디/레포지토리이름.git
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install feedparser gitpython
+
+    - name: Run script
+      run: python scripts/update_blog.py
