@@ -1,11 +1,12 @@
 name: Update Blog Posts
+  
 
 on:
   push:
-    branches:
-      - main
+      branches:
+        - main  # 또는 워크플로우를 트리거하고 싶은 브랜치 이름
   schedule:
-    - cron: '0 0 * * *'  # 매일 자정에 실행
+    - cron: '0 0 * * *'  # 매일 오후 7시에 업로드
 
 jobs:
   update_blog:
@@ -15,10 +16,15 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Set up Git
+    - name: Push changes
       run: |
-        git config --global user.name 'wsw579'
-        git config --global user.email 'rmfltmskatls@naver.com'
+        git config --global user.name '깃허브 아이디'
+        git config --global user.email '깃허브 이메일'
+        git push https://${{ secrets.GH_PAT_HISU }}@github.com/gmltn9233/velog_hisu.git 
+        
+        # 깃허브 아이디
+        # 깃허브 이메일
+        # https://${{SecretKey}}@github.com/깃허브 아이디/레포지토리이름.git
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -31,11 +37,3 @@ jobs:
 
     - name: Run script
       run: python scripts/update_blog.py
-
-    - name: Push changes
-      env:
-        GH_PAT_WSW: ${{ secrets.GH_PAT_WSW }}  # GitHub Secrets를 환경 변수로 설정
-      run: |
-        git add .
-        git commit -m "Update blog posts"
-        git push https://${{ secrets.GH_PAT_WSW }}@github.com/wsw579/velog_post.git
