@@ -18,9 +18,9 @@ jobs:
 
     - name: Push changes
       run: |
-        git config --global user.name '깃허브 아이디'
-        git config --global user.email '깃허브 이메일'
-        git push https://${{ secrets.GH_PAT_HISU }}@github.com/gmltn9233/velog_hisu.git 
+        git config --global user.name 'wsw579'
+        git config --global user.email 'rmfltmskatls@naver.com'
+        git push https://${{ secrets.GH_PAT_WSW }}@github.com/wsw579/velog_post.git 
         
         # 깃허브 아이디
         # 깃허브 이메일
