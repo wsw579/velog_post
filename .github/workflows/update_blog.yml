@@ -20,7 +20,7 @@ jobs:
       run: |
         git config --global user.name 'wsw579'
         git config --global user.email 'rmfltmskatls@naver.com'
-        git push https://${{GH_PAT_WSW}}@github.com/wsw579/velog_post.git 
+        git push https://${{ GH_PAT_WSW }}@github.com/wsw579/velog_post.git 
         
         # 깃허브 아이디
         # 깃허브 이메일
