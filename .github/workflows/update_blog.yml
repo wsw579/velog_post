@@ -16,15 +16,15 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-   - name: Configure Git
-  run: |
-    git config --global user.name "github-actions[bot]"
-    git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-- name: Push changes
-  run: |
-    git push https://${{ secrets.GH_PAT_WSW }}@github.com/wsw579/velog_post.git
-
+    - name: Push changes
+      run: |
+         git config --global user.name "github-actions[bot]"
+         git config --global user.email "github-actions[bot]@users.noreply.github.com"
+         git push https://${{ secrets.GH_PAT_WSW }}@github.com/wsw579/velog_post.git 
+        
+        # 깃허브 아이디
+        # 깃허브 이메일
+        # https://${{SecretKey}}@github.com/깃허브 아이디/레포지토리이름.git
 
     - name: Set up Python
       uses: actions/setup-python@v2
