@@ -39,7 +39,8 @@ FROM FIRST_HALF
 ORDER BY TOTAL_ORDER DESC , SHIPMENT_ID ASC ; </code></pre></blockquote>
 <pre><code>
     
-### 5. 강원도에 위치한 생산공장 목록 출력하기 
+<h3> 5. 강원도에 위치한 생산공장 목록 출력하기 </h3>
+
  ```
 SELECT FACTORY_ID, FACTORY_NAME , ADDRESS 
 FROM FOOD_FACTORY 
