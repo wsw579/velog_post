@@ -1,11 +1,13 @@
 <p><a href="https://school.programmers.co.kr/learn/courses/30/parts/17042">프로그래머스 SELECT 문제 바로가기</a></p>
 <h1 id="select">SELECT</h1>
 <h2 id="☑️-select-level-1">☑️ SELECT level 1</h2>
+
 <h3 id="1-평균-일일-대여-요금">1. 평균 일일 대여 요금</h3>
 <blockquote>
 <pre><code>SELECT ROUND(AVG(DAILY_FEE)) AS AVERAGE_FEE
     FROM CAR_RENTAL_COMPANY_CAR
     WHERE CAR_TYPE = 'SUV'; ```</code></pre></blockquote>
+    
 <h3 id="2--과일로-만든-아이스크림">2.  과일로 만든 아이스크림</h3>
 <blockquote>
 <pre><code>SELECT f.FLAVOR
@@ -36,8 +38,9 @@ ORDER BY  HIRE_YMD DESC , DR_NAME ASC ; ```</code></pre></blockquote>
 FROM FIRST_HALF  
 ORDER BY TOTAL_ORDER DESC , SHIPMENT_ID ASC ; </code></pre></blockquote>
 <pre><code>
+    
 ### 5. 강원도에 위치한 생산공장 목록 출력하기 
-&gt; ```
+ ```
 SELECT FACTORY_ID, FACTORY_NAME , ADDRESS 
 FROM FOOD_FACTORY 
 WHERE ADDRESS LIKE '%강원도%'
@@ -45,17 +48,18 @@ ORDER BY FACTORY_ID ASC;
 ```
 
 ### 6. 12세 이하인 여자 환자 목록 출력하기 
-&gt; ```
+ ```
 SELECT PT_NAME, PT_NO ,GEND_CD , AGE , IFNULL(TLNO, 'NONE') AS TLNO
 FROM PATIENT
 WHERE AGE &lt;= 12 AND GEND_CD = 'W'
 ORDER BY AGE DESC , PT_NAME ASC ;
 ```
-
 - IFNULL 은 SELECT 절에서 
 
-### 7. 조건에 맞는 도서 리스트 출력하기 
-&gt; ```
+
+### 7. 조건에 맞는 도서 리스트 출력하기
+
+```
 SELECT BOOK_ID, DATE_FORMAT(PUBLISHED_DATE,'%Y-%m-%d') AS PUBLISHED_DATE
 FROM BOOK
 WHERE PUBLISHED_DATE &gt;= '2021-01-01' AND PUBLISHED_DATE &lt;= '2021-12-31' 
@@ -64,7 +68,7 @@ ORDER BY PUBLISHED_DATE ASC ;
 ```
 
 ### 8. 조건에 부합하는 중고거래 댓글 조회하기 
-&gt; ```
+```
 SELECT b.TITLE, b.BOARD_ID , r.REPLY_ID, r.WRITER_ID , r.CONTENTS, DATE_FORMAT(r.CREATED_DATE,'%Y-%m-%d') AS CREATED_DATE
 FROM USED_GOODS_BOARD AS b
 JOIN USED_GOODS_REPLY AS r 
@@ -81,21 +85,21 @@ WHERE b.CREATED_DATE LIKE '2022-10%’
 =   b.CREATED_DATE  ≥ ‘2022-10-01’ AND  b.CREATED_DATE  ≤ ‘2022-10-31’ =  b.CREATED_DATE  BETWEEN  ‘2022-10-01’ AND ‘2022-10-31’
 
 ### 9. 모든 레코드 조회하기 
-&gt; ```
+ ```
 SELECT ANIMAL_ID,ANIMAL_TYPE,DATETIME,INTAKE_CONDITION,NAME,SEX_UPON_INTAKE
 FROM ANIMAL_INS
 ORDER BY ANIMAL_ID ASC ; 
 ```
 
 ### 10. 역순 정렬하기 
-&gt; ```
+ ```
 SELECT NAME,DATETIME
 FROM ANIMAL_INS 
 ORDER BY ANIMAL_ID DESC ;
 ```
 
 ### 11.아픈 동물 찾기 
-&gt; ```
+ ```
 SELECT ANIMAL_ID,NAME
 FROM ANIMAL_INS
 WHERE INTAKE_CONDITION ='Sick'
@@ -103,7 +107,7 @@ ORDER BY 1 ;
 ```
 
 ### 12. 가장 큰 물고기 10마리 구하기 
-&gt; ```
+ ```
 SELECT ID , LENGTH 
 FROM FISH_INFO 
 WHERE LENGTH IS NOT NULL 
@@ -116,7 +120,7 @@ LIMIT 10 ;
 EX ) LIMIT 10 - 상위 10개만출력
 
 ### 13. Python 개발자 찾기 
-&gt; ```
+ ```
 WHERE (SKILL_1 = 'Python' OR SKILL_2 = 'Python' OR SKILL_3 = 'Python')
 ```
 
@@ -124,7 +128,7 @@ WHERE (SKILL_1 = 'Python' OR SKILL_2 = 'Python' OR SKILL_3 = 'Python')
 = WHERE 'Python' IN (SKILL_1, SKILL_2, SKILL_3)
 
 ### 14. 어린 동물 찾기 
-&gt; ```
+```
 SELECT ANIMAL_ID,NAME
 FROM ANIMAL_INS 
 WHERE INTAKE_CONDITION != 'Aged'
@@ -137,21 +141,21 @@ ORDER BY ANIMAL_ID ASC ;
 
 
 ### 15. 동물의 아이디와 이름 
-&gt; ```
+ ```
 SELECT ANIMAL_ID , NAME
 FROM ANIMAL_INS
 ORDER BY ANIMAL_ID ; 
 ```
 
 ### 16. 여러 기준으로 정렬하기
-&gt; ```
+```
 SELECT ANIMAL_ID , NAME    ,DATETIME
 FROM ANIMAL_INS 
 ORDER BY 2 , 3 DESC ; 
 ```
 
 ### 17. 상위 n개 레코드
-&gt; ```
+```
 SELECT NAME
 FROM ANIMAL_INS 
 ORDER BY DATETIME ASC
@@ -162,7 +166,7 @@ LIMIT 1;
 → WHERE절에는 사용할 수 없음 
 
 ### 18. 조건에 맞는 회원수 구하기 
-&gt; ```
+```
 SELECT COUNT(USER_ID) AS USERS
 FROM USER_INFO
 WHERE JOINED LIKE '2021%' AND (AGE BETWEEN 20 AND 29) ;
@@ -178,7 +182,7 @@ WHERE JOINED LIKE '2021%' AND (AGE BETWEEN 20 AND 29) ;
 ## ☑️ SELECT level 2 
 
 ### 19. 3월에 태어난 여성 회원 목록 출력하기 
-&gt; ```
+ ```
 SELECT MEMBER_ID,MEMBER_NAME,GENDER,DATE_FORMAT(DATE_OF_BIRTH,'%Y-%m-%d') AS DATE_OF_BIRTH
 FROM MEMBER_PROFILE
 WHERE TLNO IS NOT NULL AND GENDER = 'W' AND MONTH(DATE_OF_BIRTH) = 3
@@ -190,9 +194,8 @@ ORDER BY 1;
 = DATE_FORMAT(DATE_OF_BIRTH, '%m') = '03';
 
 
-
 ### 20. 재구매가 일어난 상품과 회원 리스트 구하기 
-&gt; ```
+ ```
 SELECT USER_ID ,PRODUCT_ID
     FROM ONLINE_SALE
     GROUP BY USER_ID, PRODUCT_ID 
@@ -201,9 +204,8 @@ SELECT USER_ID ,PRODUCT_ID
 ```
 
 
-
 ### 21. 업그레이드 된 아이템 구하기 
-&gt; ```
+```
 SELECT i.ITEM_ID,i.ITEM_NAME,i.RARITY
 FROM ITEM_INFO AS i
 JOIN ITEM_TREE AS t
@@ -221,7 +223,7 @@ ORDER BY i.ITEM_ID DESC;
 
 
 ### 22. 조건에 맞는 개발자 찾기 
-&gt; ```
+```
 SELECT ID, EMAIL, FIRST_NAME, LAST_NAME
 FROM DEVELOPERS
 WHERE (SKILL_CODE &amp;
@@ -235,9 +237,8 @@ WHERE (SKILL_CODE &amp; 256) &gt; 0 OR (SKILL_CODE &amp; 1024) &gt; 0 조건을 
 - 어떻게 풀어야할지 감이 안왔던 문제 .. 
 
 
-
 ### 23. 특정 물고리를 잡은 총 수 구하기 
-&gt; ```
+```
 SELECT COUNT(i.FISH_TYPE) AS FISH_COUNT
 FROM FISH_INFO AS i
 JOIN FISH_NAME_INFO AS n
@@ -247,34 +248,32 @@ WHERE n.FISH_NAME IN ('BASS', 'SNAPPER');
 
 
 ### 24. 부모의 형질을 모두 가지는 대장균 찾기 
-&gt; ```
+```
 SELECT c.ID, c.GENOTYPE AS GENOTYPE , p.GENOTYPE AS PARENT_GENOTYPE
 FROM ECOLI_DATA AS c
 JOIN ECOLI_DATA AS p 
 on c.PARENT_ID = p.ID
 WHERE (c.GENOTYPE &amp; p.GENOTYPE) = p.GENOTYPE
-ORDER BY 1; 
-
+ORDER BY 1;
+```
 - self-join 예제 
 
 
 ## ☑️ SELECT level 3
 
-
 ### 25. 대장균들의 자식의 수 구하기 
-&gt; ```
+```
 SELECT p.ID , IFNULL(SUM(p.ID = c.PARENT_ID), 0) AS CHILD_COUNT
 FROM ECOLI_DATA AS p
 LEFT JOIN ECOLI_DATA AS c
 ON p.ID = c.PARENT_ID
 GROUP BY p.ID 
 ORDER BY 1;
-
+```
 
 ### 26. 대장균의 크기에 따라 분류하기1  
 
-
-&gt; ```
+```
 SELECT ID, CASE WHEN SIZE_OF_COLONY &lt;= 100 THEN 'LOW' 
        WHEN SIZE_OF_COLONY &lt;=1000 THEN 'MEDIUM' ELSE 'HIGH' END AS SIZE
 FROM ECOLI_DATA 
@@ -285,8 +284,7 @@ ORDER BY 1;
 
 
 ### 27. 대장균의 크기에 따라 분류하기2  
-
-&gt; ```
+```
 SELECT ID, CASE 
         WHEN NTILE(4) OVER (ORDER BY SIZE_OF_COLONY DESC) = 1 THEN 'CRITICAL'
         WHEN NTILE(4) OVER (ORDER BY SIZE_OF_COLONY DESC) = 2 THEN 'HIGH'
@@ -302,7 +300,7 @@ ORDER BY 1;
 ## ☑️ SELECT level 4
 
 ### 28. 서울에 위치한 식당 목록 출력하기 
-&gt; ```
+ ```
 SELECT i.REST_ID, i.REST_NAME , i.FOOD_TYPE,i.FAVORITES    ,i.ADDRESS, ROUND(AVG(r.REVIEW_SCORE),2) AS SCORE 
 FROM REST_INFO AS i
 JOIN REST_REVIEW AS r 
@@ -313,7 +311,7 @@ ORDER BY SCORE DESC , i.FAVORITES DESC;
 ```
 
 ###  29. 오프라인/온라인 판매 데이터 통합하기 
-&gt; ```
+```
 SELECT DATE_FORMAT(SALES_DATE,'%Y-%m-%d') AS SALES_DATE  , PRODUCT_ID, USER_ID,  SALES_AMOUNT
 FROM ONLINE_SALE 
 WHERE SALES_DATE LIKE '2022-03%'
@@ -322,13 +320,14 @@ SELECT DATE_FORMAT(SALES_DATE,'%Y-%m-%d') AS SALES_DATE , PRODUCT_ID, NULL AS US
 FROM OFFLINE_SALE 
 WHERE SALES_DATE LIKE '2022-03%'
 ORDER BY 1 ,2 ,3 ;
+ ```
 
 - UNION ALL : 중복제거없이 합치기
     → JOIN 과 구분잘해서 사용하기 ! 
 
 
 ###  30. 특정 세대의 대장균 찾기 
-&gt; ```
+```
 SELECT d3.ID
 FROM ECOLI_DATA AS d3
 JOIN ECOLI_DATA AS d2
@@ -337,6 +336,7 @@ JOIN ECOLI_DATA AS d1
 on d2.PARENT_ID = d1.ID
 WHERE d1.PARENT_ID IS NULL
 ORDER BY 1;
+ ```
 
 - JOIN 할때 자식 -&gt; 부모 -&gt; 조부모 순
 - WHERE d1.PARENT_ID IS NULL : 3세대 조건 
