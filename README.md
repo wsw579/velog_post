@@ -1,5 +1,5 @@
 
-# 🔗 velog
+# 🔗 velog_post
 
 1. KT AIVLE School AI Track 6th
    - Education
