@@ -1,5 +1,4 @@
 # velog_post 🌱
----- 
 
 1. KT AIVLE School AI TRACK 6기 | Education & Project 
 2. Coding Test |  Java & MySQL
